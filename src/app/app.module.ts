@@ -7,6 +7,7 @@ import { AuthComponent } from './auth/auth.component';
 import { RootComponent } from './root/root.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { SigninComponent } from './auth/signin/signin.component';
     AuthComponent,
     RootComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { RootComponent } from './root/root.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
   { path: '', component: RootComponent, title: 'root' },
@@ -13,7 +14,7 @@ const routes: Routes = [
       { path: 'signup', component: SignupComponent, title: 'signup' },
     ]
   },
-  { path: '**', redirectTo: '/', pathMatch: 'full' }
+  { path: '**', component: PagenotfoundComponent, title: 'Page not found' }
 ];
 
 @NgModule({
