@@ -42,3 +42,45 @@ h2 {
     background-color: var(--secondary-color);
     color: var(--white-color);
 }
+
+.submit:disabled {
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 5px;
+    outline: unset;
+    border: unset;
+    background-color: var(--disabled-color);
+    color: var(--disabled-text-color);
+}
+
+.role-button-wrapper {
+    display: flex;
+    gap: 2px;
+}
+
+.role-button {
+    padding: 10px 20px;
+    width: 120px;
+    border: unset;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.role-button:disabled {
+    background-color: var(--disabled-color);
+    color: var(--disabled-text-color);
+}
+
+.role-button:focus {
+    outline: unset;
+}
+
+.active-role-button {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+}
+
+.active-role-button:disabled {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+}

@@ -13,4 +13,8 @@
     --accent-color: #00ff88;
     --black-color: #212121;
     --white-color: #ffffff;
+    --disabled-color: #cccccc;
+    --disabled-text-color: #999999;
+    --red-color: #ff0000;
+    --success-color: #4BB543;
 }
