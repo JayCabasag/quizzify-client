@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
@@ -7,18 +8,24 @@ import { ToastService } from 'src/app/services/toast.service';
   styleUrls: ['./toast.component.css']
 })
 export class ToastComponent implements OnInit {
-  message: string | null = null;
-  status: 'success' | 'error' | null = null
+
+  messageSubject: Subject<string | null> = new Subject<string | null>();
+  statusSubject: Subject<'success' | 'error' | null> = new Subject<'success' | 'error' | null>();
+
   constructor(private toastService: ToastService) { }
 
   ngOnInit(): void {
     this.toastService.getMessage().subscribe((message) => {
-      this.message = message
+      this.messageSubject.next(message)
     })
 
     this.toastService.getStatus().subscribe((status) => {
-      this.message = status
+      this.statusSubject.next(status)
     })
+  }
+
+  clearToast(): void {
+    this.toastService.clearToast()
   }
 
 }

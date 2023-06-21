@@ -20,10 +20,17 @@ export class SigninComponent {
 
   onSubmit(event: SubmitEvent): void {
     event.preventDefault()
-    this.toastService.alertToast('Hello', 'success')
+
+    this.isSubmitting = true
+
     setTimeout(() => {
       this.isSubmitting = false
+      this.toastService.alertToast('Submitted successfully', 'success')
     }, 5000)
+
+    setTimeout(() => {
+      this.toastService.clearToast()
+    }, 10000)
   }
 
 }
