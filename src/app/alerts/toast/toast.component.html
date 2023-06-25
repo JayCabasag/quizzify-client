@@ -1,5 +1,6 @@
 <div class="toast-container" [ngClass]="{ 'hide-toast' : (statusSubject | async) === null }">
-    <div class="dialog dialog-success">
+    <div class="dialog"
+        [ngClass]="{ 'dialog-success': (statusSubject | async) === 'success', 'dialog-error': (statusSubject | async) === 'error'}">
         {{ messageSubject | async }}
         <button class="close-button" (click)="clearToast()">
             <svg class="close-icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">

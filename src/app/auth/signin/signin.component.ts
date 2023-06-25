@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastService } from 'src/app/_services/toast.service';
 import { FormControl, FormGroup } from '@angular/forms'
 import { Roles } from './constants';
+import { UserService } from 'src/app/_services/user.service';
 
 @Component({
   selector: 'app-signin',
@@ -18,7 +19,7 @@ export class SigninComponent implements OnInit {
 
   isSubmitting: boolean = false
 
-  constructor(private toastService: ToastService) { }
+  constructor(private toastService: ToastService, private userService: UserService) { }
 
   ngOnInit(): void {
     this.signInForm.setValue({
@@ -35,15 +36,13 @@ export class SigninComponent implements OnInit {
   onSubmit(): void {
     this.isSubmitting = true
 
-    console.log(this.signInForm.value)
-    setTimeout(() => {
-      this.isSubmitting = false
-      this.toastService.alertToast('Submitted successfully', 'success')
-    }, 5000)
+    this.userService.signIn(
+      this.signInForm.get('email')?.value,
+      this.signInForm.get('password')?.value,
+      this.signInForm.get('role')?.value
+    )
 
-    setTimeout(() => {
-      this.toastService.clearToast()
-    }, 10000)
+    this.isSubmitting = false
   }
 
 }

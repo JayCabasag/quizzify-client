@@ -25,7 +25,7 @@ export class ToastComponent implements OnInit {
   }
 
   clearToast(): void {
-    this.toastService.clearToast()
+    this.toastService.clearToast(0)
   }
 
 }

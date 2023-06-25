@@ -10,6 +10,7 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ToastComponent } from './alerts/toast/toast.component';
 import { ReactiveFormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ReactiveFormsModule } from '@angular/forms'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
