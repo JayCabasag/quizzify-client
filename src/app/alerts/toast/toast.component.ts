@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
-import { ToastService } from 'src/app/services/toast.service';
+import { ToastService } from 'src/app/_services/toast.service';
 
 @Component({
   selector: 'app-toast',

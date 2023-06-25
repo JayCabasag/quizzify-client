@@ -1,28 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ToastService } from 'src/app/_services/toast.service';
+import { FormControl, FormGroup } from '@angular/forms'
 import { Roles } from './constants';
-import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
-export class SigninComponent {
+export class SigninComponent implements OnInit {
 
-  role: string = Roles.STUDENT;
+  signInForm = new FormGroup({
+    role: new FormControl(),
+    email: new FormControl(),
+    password: new FormControl()
+  })
+
   isSubmitting: boolean = false
 
   constructor(private toastService: ToastService) { }
 
-  updateRole(value: string): void {
-    this.role = value
+  ngOnInit(): void {
+    this.signInForm.setValue({
+      role: Roles.STUDENT,
+      email: '',
+      password: ''
+    })
   }
 
-  onSubmit(event: SubmitEvent): void {
-    event.preventDefault()
+  updateRole(value: string): void {
+    this.signInForm.patchValue({ role: value })
+  }
 
+  onSubmit(): void {
     this.isSubmitting = true
 
+    console.log(this.signInForm.value)
     setTimeout(() => {
       this.isSubmitting = false
       this.toastService.alertToast('Submitted successfully', 'success')
