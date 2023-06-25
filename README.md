@@ -1,27 +1,69 @@
-# QuizzifyClient
+# Quizzify Web App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.5.
+Welcome to the Quizzify Web App! This client-side web application has been developed using Angular to provide an interactive and engaging user interface for the Quizzify platform.
 
-## Development server
+## Table of Contents
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Contributing](#contributing)
+- [License](#license)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Prerequisites
+Before you proceed with the installation, please make sure you have the following prerequisites:
 
-## Code scaffolding
+- Node.js (>=12.0.0)
+- Angular CLI
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Installation
+To get started with the Quizzify Web App, follow these steps:
 
-## Build
+1. Clone the repository to your local machine:
+   ```shell
+   git clone https://github.com/your-username/quizzify-web-app.git
+   ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+2. Navigate to the project directory:
+   ```shell
+   cd quizzify-web-app
+   ```
 
-## Running unit tests
+3. Install the dependencies:
+   ```shell
+   npm install
+   ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Usage
+To start the Quizzify Web App in development mode, run the following command:
+```shell
+ng serve
+```
 
-## Running end-to-end tests
+The web app will be served on `http://localhost:4200/`. Open your web browser and navigate to this URL to access the application.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+To build the web app for production, run the following command:
+```shell
+ng build --prod
+```
 
-## Further help
+The production-ready files will be generated in the `dist/` directory.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Features
+The Quizzify Web App provides the following features:
+
+- User registration and login.
+- Browse and attempt quizzes.
+- View quiz results and statistics.
+- Leaderboard to track user rankings.
+- Create and manage quizzes (admin-only).
+
+Please explore the application to discover more features and functionalities.
+
+## Contributing
+Contributions to the Quizzify Web App are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request on the GitHub repository.
+
+When contributing, please follow the existing coding style and conventions. Additionally, make sure to update the documentation and tests as necessary.
+
+## License
+The Quizzify Web App is open-source software released under the [MIT License](https://opensource.org/licenses/MIT). Feel free to modify and distribute it as per your needs. See the `LICENSE` file for more details.
