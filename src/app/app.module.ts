@@ -11,6 +11,10 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ToastComponent } from './alerts/toast/toast.component';
 import { ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserDetailsComponent } from './dashboard/user-details/user-details.component';
+import { QuizzesDetailsComponent } from './dashboard/quizzes-details/quizzes-details.component';
+import { QuizzesComponent } from './quizzes/quizzes.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { HttpClientModule } from '@angular/common/http';
     SignupComponent,
     SigninComponent,
     PagenotfoundComponent,
-    ToastComponent
+    ToastComponent,
+    DashboardComponent,
+    UserDetailsComponent,
+    QuizzesDetailsComponent,
+    QuizzesComponent
   ],
   imports: [
     BrowserModule,

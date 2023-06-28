@@ -16,20 +16,42 @@ export class UserService {
     public user: Observable<User | null>;
 
     httpOptions = {
-        headers: new HttpHeaders(
-            {
-                'Content-Type': 'application/json'
-            }
-        )
-    }
+        headers: new HttpHeaders({
+            'Content-Type': 'application/json'
+        })
+    };
 
     constructor(
-        private router: Router,
         private http: HttpClient,
-        private toastService: ToastService
+        private toastService: ToastService,
+        private router: Router
     ) {
         this.userSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('user')!));
         this.user = this.userSubject.asObservable();
+    }
+
+    isAuthenticated(): Observable<boolean> {
+        const token = localStorage.getItem('token') ?? null
+
+        if (!token) {
+            return of(false)
+        }
+
+        this.httpOptions.headers = this.httpOptions.headers.set('Authorization', `Bearer ${token}`);
+
+        return this.http.get<any>(`${this.url}/tokens/verify`, this.httpOptions).pipe(
+            map((response: any) => {
+                const { user } = response;
+                // Perform additional checks if needed
+                const isValidUser = user && (user.type === 'student' || user.type === 'teacher');
+                return isValidUser;
+            }),
+            catchError((error: any) => {
+                // Handle error if necessary
+                console.error('Token verification failed:', error);
+                return of(false);
+            })
+        )
     }
 
     signIn(email: string, password: string, type: string) {
@@ -39,6 +61,7 @@ export class UserService {
                     if (response) {
                         localStorage.setItem('token', response.access_token);
                         this.toastService.alertToast('Submitted successfully', 'success');
+                        this.routeUser(response.user.type)
                     } else {
                         this.toastService.alertToast('Error occurred while signing in', 'error');
                     }
@@ -52,5 +75,15 @@ export class UserService {
                 })
             )
             .subscribe();
+    }
+
+    routeUser(type: string) {
+        if (type === 'teacher') {
+            this.router.navigateByUrl('/dashboard');
+        } else if (type === 'student') {
+            this.router.navigateByUrl('/quizzes');
+        } else {
+            this.router.navigateByUrl('/');
+        }
     }
 }
